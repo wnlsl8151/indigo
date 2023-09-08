@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="./favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="./css/reset.css">
+    <title>INDIGO</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+        :root{            
+            font-family: 'Montserrat',sans-serif;
+            font-weight:400;
+            font-size:13px;
+            color:#333;                        
+        }
+        .tit-sec{
+            font-weight:600;
+            font-size:3em;
+            color:#3f51b5;
+            text-align:left;
+        }
+        .mid-txt{
+            font-weight:500;
+            font-size:1.2em;
+            color:#3f51b5;            
+        }
+        .serif-txt{
+            font-family:'PT Serif',serif;
+        }
+
+        .hide{
+            display:none;
+        }
+        .clearfix::after{
+            content:'';
+            display:block;
+            clear:both;
+        }
+        .fleft{
+            float:left;
+        }
+        .fright{
+            float:right;
+        }
+        .container{
+            width:1132px;
+            margin:0 auto;
+        }
+        .col01{
+            width:52px
+        }
+        .col02{
+            width:124px
+        }
+        .col03{
+            width:196px
+        }
+        .col04{
+            width:268px
+        }
+        .col05{
+            width:340px
+        }
+        .col06{
+            width:412px
+        }
+        .col07{
+            width:484px
+        }
+        .col08{
+            width:556px
+        }
+        .col09{
+            width:628px
+        }
+        .col10{
+            width:700px
+        }
+        .col11{
+            width:772px
+        }
+        .col12{
+            width:844px
+        }
+        .col13{
+            width:916px
+        }
+        .col14{
+            width:988px
+        }
+        .col15{
+            width:1060px
+        }
+        .col16{
+            width:1132px
+        }
+        .mr20{
+            margin-right:20px;
+        }
+
+        .wrap{
+            overflow:hidden;
+        }        
+        .sec{
+            margin-bottom:160px;
+        }
+        .s-mb{
+            margin-bottom:100px;
+        }
+        .header{
+            padding:28px 52px;
+        }
+        h1{
+            font-size:26px;
+            color:#3f51b5;
+        }
+        nav{
+            padding-top:5px;
+        }
+        nav li{
+            display:inline;
+            margin-left:17px;
+        }
+        .display h2{
+            position:relative;
+        }
+        .display h2::after{
+            position:absolute;
+            right:0;
+            top:50%;
+            transform:translateY(-50%);
+            content:'';
+            display:block;
+            width:2px;
+            height:44px;
+            background:#e0e0e0;
+        }
+        .promotion .img-box{
+            height:52px;
+            margin-bottom:28px;
+            text-align:center;
+        }
+        .promotion img{
+            width:auto;
+            height:100%;
+        }
+        .promotion h3{
+            margin-bottom:17px;
+            text-align:center;
+        }
+        .promotion .serif-txt{
+            font-size:12px;
+            color:#555;
+        }
+        .divider h2{
+            height:2px;
+            background:#e0e0e0;
+            text-indent:-9999px;
+        }
+        .work h2{
+            margin-bottom:80px;
+        }
+        .work article{
+            width:25%;
+            color:#fff;
+        }
+        .work article{
+            position:relative;
+            overflow:hidden;
+        }
+        .work .img-box::after{
+            position:absolute;
+            left:0;
+            right:0;
+            top:-100%;
+            bottom:100%;
+            content:'';
+            display:block;
+            background:#3f51b5;
+            opacity:0.8;
+            transition:0.3s;
+        }
+        .work article:hover .img-box::after{
+            top:0;
+            bottom:0;
+        }
+        .work h3{
+            position:absolute;
+            left:34px;
+            top:34px;
+            font-weight:500;
+            font-size:1.4em;
+            opacity:0;
+            transition-duration:0.3s;
+            transition-delay:0.3s;
+        }
+        .work article:hover h3{
+            opacity:1;
+        }
+        .work p{
+            position:absolute;
+            left:34px;
+            top:70px;
+            opacity:0;
+            font-size:0;
+        }
+        .work article:hover p{
+            /* animation-name:ani01; */
+            /* animation-duration:0.3s; */
+            /* animation-delay:0.6s; */
+            /* animation-iteration-count:4; */
+            /* animation-fill-mode:forwards; */
+            animation: ani01 0.3s 0.6s 4 forwards;
+        }
+        @keyframes ani01{
+            0%{
+                opacity:0;
+                font-size:0; 
+            }
+            100%{
+                opacity:1;
+                font-size:13px;
+            }
+        }
+        .mini-divider h2{
+            width:20px;
+            margin:0 auto;
+            background:#3f51b5;
+        }
+        .blog article p:first-of-type{
+            margin:10px 0 6px;
+            font-size:0.8em;
+            color:#999;
+        }
+        .blog article p:last-of-type{
+            font-size:1.2em
+        }
+        
+        .field input,.field textarea{
+            display:block;
+            width:100%;
+            margin-bottom:2em;
+            border:none;
+            border-bottom:1px solid #757575;
+            padding-bottom:10px;            
+        }
+        .field input::placeholder,.field textarea::placeholder{
+            color:#3f51b5;
+        }
+        .field textarea{
+            height:134px;
+        }
+        .send-box input{
+            border:none;
+            padding:10px 0;
+            background:#3f51b5;
+            color:#fff;
+        }
+        .map{
+            margin-bottom:0;
+        }
+        .map iframe{
+            width:100%;
+            height:425px;
+        }
+        .copyright address{
+            padding:30px;
+            text-align:center;
+            color:#3f51b5;
+        }
+    </style>
+</head>
+<body>
+    <section class="wrap">
+        <header class="header clearfix" id="top01">
+            <h1 class="fleft"><a href="#">INDIGO</a></h1>
+            <nav class="fright">
+                <ul class="mid-txt">
+                    <li><a href="#top01">HOME</a></li>
+                    <li><a href="#top02">WE ARE</a></li>
+                    <li><a href="#top03">WORK</a></li>
+                    <li><a href="#top04">BLOG</a></li>
+                    <li><a href="#top05">CONTACT US</a></li>
+                </ul>
+            </nav>
+        </header>
+        <section class="sec slider s-mb">
+            <h2 class="hide">SLIDER</h2>
+            <div class="img-box"><a href="#"><img src="./images/slide01.jpg" alt="슬라이더1"></a></div>
+        </section>
+        <section class="sec display s-mb" id="top02">
+            <div class="container clearfix">
+                <h2 class="tit-sec col07 fleft">WE ARE</h2>
+                <p class="col09 fright serif-txt">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Delectus nam neque placeat velit, dolorem enim ipsum doloribus autem quibusdam, voluptatum reprehenderit quis nihil repellendus at fugiat expedita animi nobis sunt.</p>
+            </div>
+        </section>
+        <section class="sec promotion">
+            <div class="container clearfix">
+                <h2 class="hide">promotion</h2>
+                <article class="fleft col04 mr20">
+                    <div class="img-box"><img src="./images/promo01.png" alt="pro01"></div>
+                    <h3 class="mid-txt">HOME</h3>
+                    <p class="serif-txt">Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt, libero.</p>
+                </article>
+                <article class="fleft col04 mr20">
+                    <div class="img-box"><img src="./images/promo02.png" alt="pro02"></div>
+                    <h3 class="mid-txt">WE ARE</h3>
+                    <p class="serif-txt">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptates doloribus illo deserunt.</p>
+                </article>
+                <article class="fleft col04 mr20">
+                    <div class="img-box"><img src="./images/promo03.png" alt="pro03"></div>
+                    <h3 class="mid-txt">WORK</h3>
+                    <p class="serif-txt">Lorem ipsum dolor sit amet consectetur.</p>
+                </article>
+                <article class="fleft col04">
+                    <div class="img-box"><img src="./images/promo04.png" alt="pro04"></div>
+                    <h3 class="mid-txt">BLOG</h3>
+                    <p class="serif-txt">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Non, culpa optio. Sed, aliquid fuga fugit repellat aliquam magnam cupiditate, saepe ex consequuntur enim quos</p>
+                </article>
+            </div>            
+        </section>
+        <section class="sec divider">
+            <div class="container">
+                <h2>구분선</h2>                
+            </div>
+        </section>
+        <section class="sec work clearfix" id="top03">
+            <div class="container">
+                <h2 class="tit-sec">WORK</h2>
+            </div>
+            <article class="fleft">
+                <div class="img-box"><img src="./images/work01.jpg" alt="work01"></div>
+                <h3>Indigo Blue</h3>
+                <p>WEB/PRINT</p>
+            </article>
+            <article class="fleft">
+                <div class="img-box"><img src="./images/work02.jpg" alt="work02"></div>
+                <h3>Indigo Blue</h3>
+                <p>WEB/PRINT</p>
+            </article>
+            <article class="fleft">
+                <div class="img-box"><img src="./images/work03.jpg" alt="work03"></div>
+                <h3>Indigo Blue</h3>
+                <p>WEB/PRINT</p>
+            </article>
+            <article class="fleft">
+                <div class="img-box"><img src="./images/work04.jpg" alt="work04"></div>
+                <h3>Indigo Blue</h3>
+                <p>WEB/PRINT</p>
+            </article>
+            <article class="fleft">
+                <div class="img-box"><img src="./images/work05.jpg" alt="work05"></div>
+                <h3>Indigo Blue</h3>
+                <p>WEB/PRINT</p>
+            </article>
+            <article class="fleft">
+                <div class="img-box"><img src="./images/work06.jpg" alt="work06"></div>
+                <h3>Indigo Blue</h3>
+                <p>WEB/PRINT</p>
+            </article>
+            <article class="fleft">
+                <div class="img-box"><img src="./images/work07.jpg" alt="work07"></div>
+                <h3>Indigo Blue</h3>
+                <p>WEB/PRINT</p>
+            </article>
+            <article class="fleft">
+                <div class="img-box"><img src="./images/work08.jpg" alt="work08"></div>
+                <h3>Indigo Blue</h3>
+                <p>WEB/PRINT</p>
+            </article>
+        </section>
+        <section class="sec divider mini-divider">
+            <div class="container">
+                <h2>구분선</h2>                
+            </div>
+        </section>
+        <section class="sec blog" id="top04">
+            <div class="container clearfix">
+                <h2 class="tit-sec fleft col04 mr20">BLOG</h2>
+                <article class="fleft col04 mr20">
+                    <div class="img-box"><img src="./images/blog01.jpg" alt="blog01"></div>
+                    <h3 class="hide">아티클제목1</h3>
+                    <p>OCT 30. 2023</p>
+                    <p>Lorem ipsum dolor sit amet.</p>
+                </article>
+                <article class="fleft col04 mr20">
+                    <div class="img-box"><img src="./images/blog02.jpg" alt="blog02"></div>
+                    <h3 class="hide">아티클제목2</h3>
+                    <p>OCT 30. 2023</p>
+                    <p>Lorem ipsum dolor sit amet.</p>
+                </article>
+                <article class="fleft col04">
+                    <div class="img-box"><img src="./images/blog03.jpg" alt="blog03"></div>
+                    <h3 class="hide">아티클제목3</h3>
+                    <p>OCT 30. 2023</p>
+                    <p>Lorem ipsum dolor sit amet.</p>
+                </article>
+            </div>
+        </section>
+        <section class="sec contact" id="top05">
+            <div class="container clearfix">
+                <h2 class="tit-sec fleft col04 mr20">CONTACT</h2>
+                <form action="#" class="fright col12">
+                    <div class="field clearfix">
+                        <div class="fleft col06">
+                            <label class="hide" for="name">name</label>
+                            <input type="text" name="name" id="name" placeholder="Name">
+                            <label class="hide" for="phone">phone</label>
+                            <input type="text" name="phone" id="phone" placeholder="Phone">
+                            <label class="hide" for="email">email address</label>
+                            <input type="email" name="email" id="email" placeholder="Email Address">
+                        </div>
+                        <div class="fright col06">
+                            <label class="hide" for="msg">Message</label>
+                            <textarea name="msg" id="msg" placeholder="Message"></textarea>
+                        </div>
+                    </div>
+                    <div class="send-box clearfix">
+                        <input class="fright col03" type="submit" value="SEND MESSAGE">
+                    </div>
+                </form>
+            </div>
+        </section>
+        <section class="sec map">
+            <div class="container">
+                <h2 class="hide">map</h2>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m10!1m8!1m3!1d11515326.99634034!2d17.2800773!3d45.2000678!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sko!2skr!4v1685005298145!5m2!1sko!2skr" style="border:0;"></iframe>
+            </div>
+        </section>
+        <footer class="footer copyright">
+            <address>INDIGO</address>
+        </footer>
+    </section>
+    <script src="./js/default.js"></script>
+</body>
+</html>
